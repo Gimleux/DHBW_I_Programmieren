@@ -4,6 +4,7 @@
 * 02 - IDEs
 * 03 - Packages
 * 04 - Primitive Datentypen
+* 06 - Kontrollstrukturen
 
 # Verschobene Folien
 * 05 - Operatoren
