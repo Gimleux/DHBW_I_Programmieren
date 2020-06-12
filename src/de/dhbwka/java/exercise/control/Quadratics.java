@@ -41,8 +41,8 @@ public class Quadratics {
         } else {
             System.out.println("Die Nullstellen der Gleichung lauten:");
             System.out.print(Console.ColorConsoleText("red"));
-            System.out.println("x1 = " + (-b+Math.sqrt(discriminante))/(2*a));
-            System.out.println("x2 = " + (-b-Math.sqrt(discriminante))/(2*a));
+            System.out.println("x1 = " + (-b + Math.sqrt(discriminante)) / (2 * a));
+            System.out.println("x2 = " + (-b - Math.sqrt(discriminante)) / (2 * a));
             System.out.print(Console.ColorConsoleText("default"));
         }
     }

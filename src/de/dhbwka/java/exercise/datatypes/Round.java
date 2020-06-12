@@ -31,10 +31,7 @@ public class Round {
     public static int round(double input) {
         int addValue = (input >= 0) ? 1 : -1;
 
-        if (((input - ((int) input) < 0.5 ) && (input - ((int) input) > -0.5 ))) { //falls im Bereich (0.5,-0.5)
-            return  (int) input;
-        } else {
-            return (int) input + addValue;
-        }
+        //falls im Bereich (0.5,-0.5)
+        return (((input - ((int) input) < 0.5) && (input - ((int) input) > -0.5))) ? (int) input : (int) input + addValue;
     }
 }

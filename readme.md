@@ -12,3 +12,4 @@
 # Bearbeitete Übungen
 * 00 - Aufgaben zu Packages
 * 01 - Aufgaben zu primitiven Datentypen
+* 02 - Aufgaben zu Operatoren
