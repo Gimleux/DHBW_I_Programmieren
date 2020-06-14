@@ -5,6 +5,7 @@
 * 03 - Packages
 * 04 - Primitive Datentypen
 * 06 - Kontrollstrukturen
+* 07 - Arrays
 
 # Verschobene Folien
 * 05 - Operatoren
@@ -14,3 +15,4 @@
 * 01 - Aufgaben zu primitiven Datentypen
 * 02 - Aufgaben zu Operatoren
 * 03 - Aufgaben zu Kontrollstrukturen
+* 04 - Aufgaben zu Arrays
