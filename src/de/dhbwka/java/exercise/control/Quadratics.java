@@ -7,15 +7,17 @@ import java.util.Scanner;
 public class Quadratics {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        System.out.print("Bitte geben Sie den Wert von a ein: ");
-        double a = scan.nextDouble();
-        System.out.print("Bitte geben Sie den Wert von b ein: ");
-        double b = scan.nextDouble();
-        System.out.print("Bitte geben Sie den Wert von c ein: ");
-        double c = scan.nextDouble();
+        double a = quadraticsGetVariableValue(scan, 'a');
+        double b = quadraticsGetVariableValue(scan, 'b');
+        double c = quadraticsGetVariableValue(scan, 'c');
         scan.close();
 
         solveQuadraticEquation(a, b, c);
+    }
+
+    public static double quadraticsGetVariableValue(Scanner scan, char variable){
+        System.out.print("Bitte geben Sie den Wert von " + variable + " ein: ");
+        return scan.nextDouble();
     }
 
     public static void solveQuadraticEquation(double a, double b, double c) {
