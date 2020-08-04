@@ -4,8 +4,8 @@ public class Console {
 
     //Gibt ANSI-String mit gewuenschter Farbe zurueck um Ausgaben in der Konsole einzufaerben
     /* System.out.println(ANSI_RED + "This text is red!" + ANSI_RESET);
-        -> "\u001B" + Console.ColorConsoleText + <Text> */
-    public static String ColorConsoleText(String color){
+        -> "\u001B" + Console.colorConsoleText + <Text> */
+    public static String colorConsoleText(String color){
 
         switch (color.toLowerCase()) {
             case "black"    : return "\u001B[30m";
@@ -21,5 +21,9 @@ public class Console {
             case "default"  :
             default         : return "\u001B[0m";
         }
+    }
+
+    public static void printlnColoredText(String text, String color){
+        System.out.println(colorConsoleText(color) + text + colorConsoleText("default"));
     }
 }

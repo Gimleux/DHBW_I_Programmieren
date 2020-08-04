@@ -32,7 +32,7 @@ public class Quadratics {
         if (b == 0) {
             System.out.println("Die Gleichung ist degeneriert.");
         } else {
-            System.out.println("Die Nullstelle der Gleichung lautet " + Console.ColorConsoleText("red") + (-c / b) + Console.ColorConsoleText("default"));
+            System.out.println("Die Nullstelle der Gleichung lautet " + Console.colorConsoleText("red") + (-c / b) + Console.colorConsoleText("default"));
         }
     }
 
@@ -42,10 +42,10 @@ public class Quadratics {
             System.out.println("Die Lösung ist konjugiert komplex.");
         } else {
             System.out.println("Die Nullstellen der Gleichung lauten:");
-            System.out.print(Console.ColorConsoleText("red"));
+            System.out.print(Console.colorConsoleText("red"));
             System.out.println("x1 = " + (-b + Math.sqrt(discriminante)) / (2 * a));
             System.out.println("x2 = " + (-b - Math.sqrt(discriminante)) / (2 * a));
-            System.out.print(Console.ColorConsoleText("default"));
+            System.out.print(Console.colorConsoleText("default"));
         }
     }
 }

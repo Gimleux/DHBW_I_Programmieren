@@ -6,6 +6,7 @@
 * 04 - Primitive Datentypen
 * 06 - Kontrollstrukturen
 * 07 - Arrays
+* 08 - Objektorientierung
 
 # Verschobene Folien
 * 05 - Operatoren
@@ -17,3 +18,4 @@
 * 03 - Aufgaben zu Kontrollstrukturen
 * 04 - Aufgaben zu Arrays - 1
 * 05 - Aufgaben zu Arrays - 2
+* 06 - Aufgaben zu Klassen - 1

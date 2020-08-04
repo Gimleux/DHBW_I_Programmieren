@@ -7,12 +7,12 @@ import java.util.Scanner;
 public class Round {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        System.out.print("Bitte geben Sie die zu rundende Zahl ein: " + Console.ColorConsoleText("red"));
+        System.out.print("Bitte geben Sie die zu rundende Zahl ein: " + Console.colorConsoleText("red"));
         double input = scan.nextDouble();
-        System.out.println(Console.ColorConsoleText("default"));
+        System.out.println(Console.colorConsoleText("default"));
         scan.close();
 
-        System.out.println("Die kaufmännische Rundung von " + Console.ColorConsoleText("red") + input + Console.ColorConsoleText("default") + " lautet: " + Console.ColorConsoleText("green") + round(input) + Console.ColorConsoleText("default"));
+        System.out.println("Die kaufmännische Rundung von " + Console.colorConsoleText("red") + input + Console.colorConsoleText("default") + " lautet: " + Console.colorConsoleText("green") + round(input) + Console.colorConsoleText("default"));
 
         /* 
         System.out.println("33,4: " + round(33.4));
