@@ -7,6 +7,7 @@
 * 06 - Kontrollstrukturen
 * 07 - Arrays
 * 08 - Objektorientierung
+* 09 - Klassen und Objekte
 
 # Verschobene Folien
 * 05 - Operatoren
