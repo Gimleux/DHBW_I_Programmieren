@@ -6,6 +6,9 @@ public class Radio {
     private float frequency;
 
     public Radio() {
+        this.on = false;
+        this.volume = 6;
+        this.frequency = 99.9f;
     }
 
     /**

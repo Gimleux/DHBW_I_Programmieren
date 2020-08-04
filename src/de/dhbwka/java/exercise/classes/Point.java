@@ -5,6 +5,8 @@ public class Point {
     private double y;
 
     public Point() {
+        this.x = 6;
+        this.y = 9;
     }
 
     public Point(double x, double yCoord) {

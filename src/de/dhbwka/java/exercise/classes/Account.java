@@ -9,6 +9,10 @@ public class Account {
     private double limitOnOverdrafts;
 
     public Account() {
+        this.accountNumber = 666;
+        this.name = "Satan";
+        this.accountBalance = 666.666;
+        this.limitOnOverdrafts = 66.6;
     }
 
     public Account(int accountNumber, String name, double accountBalance, double limitOnOverdrafts) {
