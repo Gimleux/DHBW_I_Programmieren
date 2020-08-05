@@ -1,6 +1,7 @@
 package de.dhbwka.java.exercise.classes;
 
 import de.dhbwka.java.utilities.Input.SameLineInput;
+import de.dhbwka.java.utilities.console.Console;
 
 import java.util.Scanner;
 
@@ -24,7 +25,11 @@ public class Nimmspiel {
         }
     }
 
-    private void changePlayer() {
+    public boolean isPlayerOne() {
+        return playerOne;
+    }
+
+    private void switchPlayer() {
         playerOne = !playerOne;
     }
 
@@ -32,27 +37,20 @@ public class Nimmspiel {
         return ((stock1 == stock2) && (stock1 == 0));
     }
 
-    private boolean wonOrPlayerChange() {
-        if (won()) {
-            return true;
+    public void reduceStock(int stockNumber, int number){
+        if (stockNumber == 1) {
+            reduceStock1(number);
         } else {
-            changePlayer();
-            return false;
+            reduceStock2(number);
         }
     }
 
-    public boolean reduceStock1(int number) {
+    public void reduceStock1(int number) {
         if (number > 0 && stock1 - number >= 0) stock1 -= number;
-        return wonOrPlayerChange();
     }
 
-    public boolean reduceStock2(int number) {
+    public void reduceStock2(int number) {
         if (number > 0 && stock2 - number >= 0) stock2 -= number;
-        return wonOrPlayerChange();
-    }
-
-    public boolean isPlayerOne() {
-        return playerOne;
     }
 
     public int getStock1() {
@@ -71,7 +69,7 @@ public class Nimmspiel {
     }
 
     public static boolean oneRound(Scanner scan, Nimmspiel game) {
-        System.out.println(game);
+        Console.printlnColoredText(game.toString(), "yellow");
         char playerChar = (game.isPlayerOne() ? 'A' : 'B');
 
         System.out.println("Von welchem Vorrat(1/2) möchte Spieler "+playerChar+" ziehen?");
@@ -85,17 +83,21 @@ public class Nimmspiel {
 
         boolean won;
         if ((stackNumber==1? game.stock1 : game.stock2)-reduceNumber>=0){
-            won = (stackNumber==1? game.reduceStock1(reduceNumber) : game.reduceStock2(reduceNumber));
+            game.reduceStock(stackNumber, reduceNumber);
+            won = game.won();
+            if (!won) game.switchPlayer();
 
             System.out.println(
-                    "Spieler " + playerChar +
+                    (won? Console.colorConsoleText("green") : "") +
+                            "Spieler " + playerChar +
                             ": nimmt vom " +
                             stackNumber + ". Haufen " +
                             reduceNumber + " Kugel" + (reduceNumber>1? "n" : "") +
                             (won ? " und hat gewonnen!" : "") + "\n"
+                    + Console.colorConsoleText("default")
             );
         } else {
-            System.out.println("Zug nicht möglich!\n");
+            Console.printlnColoredText("Zug nicht möglich!\n", "red");
             won = false;
         }
         return won;
@@ -112,6 +114,7 @@ public class Nimmspiel {
         Scanner scan = new Scanner(System.in);
         int stack1 = SameLineInput.getIntValueOfDescription(scan, "Anzahl der Kugeln im Vorrat 1");
         int stack2 = SameLineInput.getIntValueOfDescription(scan, "Anzahl der Kugeln im Vorrat 2");
+        Console.printlnColoredText("-----------------------------------------------\n", "yellow");
         Nimmspiel game = new Nimmspiel(stack1, stack2);
         play(scan, game);
     }
