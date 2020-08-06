@@ -60,4 +60,14 @@ public class Console {
     public static void printlnColoredText(String text, String color) {
         System.out.println(colorConsoleText(color) + text + colorConsoleText("default"));
     }
+    public static void printlnColoredText(char text, String color) {
+        System.out.println(colorConsoleText(color) + text + colorConsoleText("default"));
+    }
+
+    public static void printColoredText(String text, String color) {
+        System.out.print(colorConsoleText(color) + text + colorConsoleText("default"));
+    }
+    public static void printColoredText(char text, String color) {
+        System.out.print(colorConsoleText(color) + text + colorConsoleText("default"));
+    }
 }
