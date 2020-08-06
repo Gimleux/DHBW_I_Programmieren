@@ -9,6 +9,8 @@ public class Console {
     //TODO [VG;BGm
     //TODO https://en.wikipedia.org/wiki/ANSI_escape_code#8-bit
 
+    //TODO: Testen ob white (bright) und black (bright) vertauscht sind
+
     private static String get8BitTextColorNumber(String color) {
         int extension = 0;
         switch (color.toLowerCase()) {

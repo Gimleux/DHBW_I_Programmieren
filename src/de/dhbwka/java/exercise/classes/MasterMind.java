@@ -2,16 +2,20 @@ package de.dhbwka.java.exercise.classes;
 
 import de.dhbwka.java.utilities.Input.SameLineInput;
 import de.dhbwka.java.utilities.console.Console;
+import de.dhbwka.java.utilities.print.PrintArray;
 import de.dhbwka.java.utilities.random.Random;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class MasterMind {
     private char[] letters;
+    private int[][] triesPositions;//[rightPosition][wrongPositionRightLetter]
     private String[] tries;
+    private boolean[] checkedCharsInTip;
     private int rightPosition = 0;
     private int wrongPositionRightLetter = 0;
-    private int timesTried = 1;
+    private int timesTried = 0;
     private final int MAX_TRIES;
 
     public MasterMind() {
@@ -22,10 +26,13 @@ public class MasterMind {
         MAX_TRIES = max_tries;
         letters = new char[positions];
         tries = new String[max_tries];
+        triesPositions = new int[2][max_tries];
+        checkedCharsInTip = new boolean[positions];
     }
 
     public void start() {
         initLetters();
+        System.out.println(Console.colorConsoleTextAndBackground("white bright", "red") + "MasterMind" + Console.colorConsoleTextAndBackground("default", "default"));
         Console.printlnColoredText("'help' für bisherige Statistik\n", "orange");
         game();
     }
@@ -44,25 +51,29 @@ public class MasterMind {
         return false;
     }
 
-    private boolean charIsInLetters(char chr) {
-        for (char element : letters) {
-            if (chr == element) return true;
+    private boolean charIsInLetters(String tip, int position) {
+        for (int i = 0; i < letters.length; ++i) {
+            // nicht bereits betrachtet && zu pruefender Char steht in letters && stelle an der er in letters steht ist nicht schon richtiger char zugeordnet
+            if (!checkedCharsInTip[i] && tip.charAt(position) == letters[i] && tip.charAt(i) != letters[i]) {
+                checkedCharsInTip[i] = true;
+                return true;
+            }
         }
         return false;
     }
 
-    private int incIfCharIsInLetters(char chr, int number) {
-        if (charIsInLetters(chr)) {
+    private int incIfCharIsInLetters(String tip, int position, int number) {
+        if (charIsInLetters(tip, position)) {
             return ++number;
         } else {
             return number;
         }
     }
 
-    private String adapt(String tip){
+    private String adapt(String tip) {
         tip = tip.trim();
         if (tip.length() > letters.length) {
-            tip = tip.substring(0, letters.length - 1);
+            tip = tip.substring(0, letters.length);
         }
         return tip.toUpperCase();
     }
@@ -70,12 +81,14 @@ public class MasterMind {
     private void verify(String tip) {
         rightPosition = 0;
         wrongPositionRightLetter = 0;
+        Arrays.fill(checkedCharsInTip, false);
 
         for (int i = 0; i < tip.length(); ++i) {
             if (tip.charAt(i) == letters[i]) {
+                checkedCharsInTip[i] = true;
                 rightPosition++;
             } else {
-                wrongPositionRightLetter = incIfCharIsInLetters(tip.charAt(i), wrongPositionRightLetter);
+                wrongPositionRightLetter = incIfCharIsInLetters(tip, i, wrongPositionRightLetter);
             }
         }
     }
@@ -90,6 +103,8 @@ public class MasterMind {
             System.exit(418);
         }
         tries[i] = tip;
+        triesPositions[0][i] = rightPosition;
+        triesPositions[1][i] = wrongPositionRightLetter;
     }
 
     private boolean won() {
@@ -127,14 +142,14 @@ public class MasterMind {
     }
 
     private void printTries() {
-        System.out.println(timesTried + " bisherige" + (timesTried == 0 ? "r" : "") + "Versuch" + (timesTried > 0 ? "e" : "") + ":");
-        for (String triedString : tries) {
-            if (triedString == null) {
+        System.out.println(timesTried + " bisherige" + (timesTried == 0 ? "r" : "") + " Versuch" + (timesTried > 0 ? "e" : "") + ":");
+        for (int i = 0; i < tries.length; ++i) {
+            if (tries[i] == null) {
                 return;
             } else {
-                printColoredTry(triedString);
-                Console.printColoredText(" " + rightPosition, "green");
-                Console.printlnColoredText(" " + wrongPositionRightLetter + "\n", "orange");
+                printColoredTry(tries[i]);
+                Console.printColoredText(" " + triesPositions[0][i], "green");
+                Console.printlnColoredText(" " + triesPositions[1][i], "orange");
             }
         }
     }
@@ -145,14 +160,16 @@ public class MasterMind {
         if (wantsHelp(tip)) {
             return false;
         }
+        timesTried++;
         tip = adapt(tip);
         verify(tip);
         addTipToTries(tip);
         boolean won = won();
         if (won) {
-            Console.printlnColoredText("Mit " + timesTried + " Versuchen gewonnen!", "green");
+            Console.printlnColoredText("Mit " + timesTried + " Versuch" + (timesTried == 1 ? "" : "en") + " gewonnen!", "green");
         } else {
             printTries();
+            System.out.println();
         }
         return won;
     }
@@ -167,11 +184,12 @@ public class MasterMind {
 
     @Override
     public String toString() {
-        return Console.colorConsoleTextAndBackground("red", "black") + "MasterMind" + Console.colorConsoleTextAndBackground("default", "default") +"\n" +
+        return Console.colorConsoleTextAndBackground("white bright", "green") + "Hilfe" + Console.colorConsoleTextAndBackground("default", "default") + "\n" +
+                "Mögliche Buchstaben: " + Console.colorConsoleText(getColor('A')) + "A" + Console.colorConsoleText("default") + "-" + Console.colorConsoleText(getColor('H')) + "H" + Console.colorConsoleText("default") + "\n" +
                 "Versuche: " + timesTried +
                 "/" + MAX_TRIES + "\n" +
-                Console.colorConsoleText("green") + "Richtige Position: " + rightPosition + "\n" +
-                Console.colorConsoleText("orange") + "Falsche Position, richtige Letter" + wrongPositionRightLetter +
+                Console.colorConsoleText("green") + "Zuletzt richtige Position: " + rightPosition + "\n" +
+                Console.colorConsoleText("orange") + "Zuletzt falsche Position, richtige Letter: " + wrongPositionRightLetter +
                 Console.colorConsoleText("default") + "\n";
     }
 

@@ -20,4 +20,5 @@
 * 04 - Aufgaben zu Arrays - 1
 * 05 - Aufgaben zu Arrays - 2
 * 06 - Aufgaben zu Klassen - 1
-* 07 - Aufgaben zu Klassen -2
+* 07 - Aufgaben zu Klassen - 2
+* 08 - Aufgaben zu Klassen - 3
