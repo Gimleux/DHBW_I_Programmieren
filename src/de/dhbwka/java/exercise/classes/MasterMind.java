@@ -167,7 +167,7 @@ public class MasterMind {
 
     @Override
     public String toString() {
-        return "MasterMind\n" +
+        return Console.colorConsoleTextAndBackground("red", "black") + "MasterMind" + Console.colorConsoleTextAndBackground("default", "default") +"\n" +
                 "Versuche: " + timesTried +
                 "/" + MAX_TRIES + "\n" +
                 Console.colorConsoleText("green") + "Richtige Position: " + rightPosition + "\n" +
@@ -179,5 +179,4 @@ public class MasterMind {
         MasterMind game = new MasterMind();
         game.start();
     }
-
 }

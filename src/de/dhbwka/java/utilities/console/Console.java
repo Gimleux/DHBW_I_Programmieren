@@ -5,61 +5,85 @@ public class Console {
     //Gibt ANSI-String mit gewuenschter Farbe zurueck um Ausgaben in der Konsole einzufaerben
     /* System.out.println(ANSI_RED + "This text is red!" + ANSI_RESET);
         -> "\u001B" + Console.colorConsoleText + <Text> */
-    public static String colorConsoleText(String color) {
-        //TODO: BG = Zahl+10
-        //TODO [VG;BGm
-        //TODO https://en.wikipedia.org/wiki/ANSI_escape_code#8-bit
+
+    //TODO [VG;BGm
+    //TODO https://en.wikipedia.org/wiki/ANSI_escape_code#8-bit
+
+    private static String get8BitTextColorNumber(String color) {
+        int extension = 0;
         switch (color.toLowerCase()) {
+            case "orange":
+                extension = 202;
+                break;
+            case "orange bright":
+                extension = 220;
+                break;
+            default:
+                break;
+        }
+        return ";5;" + extension;
+    }
+
+    private static int getTextColorNumber(String color) {
+        switch (color.toLowerCase()) {
+            case "orange":
+            case "orange bright":
+                return 38;
             case "black":
-                return "\u001B[30m";
+                return 30;
             case "red":
-                return "\u001B[31m";
+                return 31;
             case "green":
-                return "\u001B[32m";
+                return 32;
             case "yellow":
-                return "\u001B[33m";
+                return 33;
             case "blue":
-                return "\u001B[34m";
+                return 34;
             case "magenta":
             case "purple":
-                return "\u001B[35m";
+                return 35;
             case "cyan":
-                return "\u001B[36m";
+                return 36;
             case "white":
-                return "\u001B[37m";
-            case "orange":
-                return "\u001B[38;5;202m";
+                return 37;
             case "black bright":
             case "gray":
-                return "\u001B[90m";
+                return 90;
             case "red bright":
-                return "\u001B[91m";
+                return 91;
             case "green bright":
-                return "\u001B[92m";
+                return 92;
             case "yellow bright":
-                return "\u001B[93m";
+                return 93;
             case "blue bright":
-                return "\u001B[94m";
+                return 94;
             case "magenta bright":
             case "purple bright":
-                return "\u001B[95m";
+                return 95;
             case "cyan bright":
-                return "\u001B[96m";
+                return 96;
             case "white bright":
-                return "\u001B[97m";
-            case "orange bright":
-                return "\u001B[38;5;220m";
+                return 97;
             case "reset":
             case "normal":
             case "default":
             default:
-                return "\u001B[0m";
+                return 39;
         }
     }
 
+    public static String colorConsoleText(String color) {
+        int colorNumber = getTextColorNumber(color);
+        String extension8Bit = "";
+        if (colorNumber == 38) {
+            extension8Bit = get8BitTextColorNumber(color);
+        }
+        return ("\u001B[" + colorNumber + extension8Bit + "m");
+    }
     public static void printlnColoredText(String text, String color) {
         System.out.println(colorConsoleText(color) + text + colorConsoleText("default"));
     }
+
     public static void printlnColoredText(char text, String color) {
         System.out.println(colorConsoleText(color) + text + colorConsoleText("default"));
     }
@@ -67,7 +91,49 @@ public class Console {
     public static void printColoredText(String text, String color) {
         System.out.print(colorConsoleText(color) + text + colorConsoleText("default"));
     }
+
     public static void printColoredText(char text, String color) {
         System.out.print(colorConsoleText(color) + text + colorConsoleText("default"));
+    }
+
+    public static String colorConsoleBackground(String color) {
+        int colorNumber = getTextColorNumber(color)+10;
+        String extension8Bit = "";
+        if (colorNumber == 48) {
+            extension8Bit = get8BitTextColorNumber(color);
+        }
+        return ("\u001B[" + colorNumber + extension8Bit + "m");
+    }
+    public static void printlnColoredBackground(String text, String color) {
+        System.out.println(colorConsoleBackground(color) + text + colorConsoleBackground("default"));
+    }
+
+    public static void printlnColoredBackground(char text, String color) {
+        System.out.println(colorConsoleBackground(color) + text + colorConsoleBackground("default"));
+    }
+
+    public static void printColoredBackground(String text, String color) {
+        System.out.print(colorConsoleBackground(color) + text + colorConsoleBackground("default"));
+    }
+
+    public static void printColoredBackground(char text, String color) {
+        System.out.print(colorConsoleBackground(color) + text + colorConsoleBackground("default"));
+    }
+
+    public static String colorConsoleTextAndBackground(String textColor, String backgroundColor) {
+        //TODO: Fehler beheben bei 8Bit Farben (richtige Stellen fuer textColor- und bgColor-Teil finden und anpassen)
+        //Text:
+        int textColorNumber = getTextColorNumber(textColor);
+        String textExtension8Bit = "";
+//        if (textColorNumber == 38) {
+//            textExtension8Bit = get8BitTextColorNumber(textColor);
+//        }
+        //Background:
+        int backgroundcolorNumber = getTextColorNumber(backgroundColor)+10;
+        String backgroundExtension8Bit = "";
+//        if (backgroundcolorNumber == 48) {
+//            backgroundExtension8Bit = get8BitTextColorNumber(backgroundColor);
+//        }
+        return ("\u001B[" + textColorNumber + textExtension8Bit + ";" + backgroundcolorNumber + backgroundExtension8Bit + "m");
     }
 }
