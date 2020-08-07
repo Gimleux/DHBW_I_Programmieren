@@ -1,9 +1,11 @@
-package de.dhbwka.java.utilities.Input;
+package de.dhbwka.java.exercise.strings;
+
+import de.dhbwka.java.utilities.Input.OneLineInput;
 
 import java.util.Scanner;
 
 public class Palindrom {
-    String word;
+    private String word;
 
     public void printTurnedAround(){
         System.out.println("Umgekehrt: " + turnAround(word));
