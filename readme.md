@@ -11,6 +11,7 @@
 * 09 - Klassen und Objekte
 * 10 - Strings Wrapper
 * 11 - Methoden Special
+* 12 - Dokumentation
 
 Verschobene Folien
 -
@@ -27,6 +28,7 @@ Verschobene Folien
 * 08 - Aufgaben zu Klassen - 3
 * 10 - Aufgaben zu Strings
 * 11 - Aufgaben zu Methoden Special
+* 12 - Aufgaben zu Dokumentation
 
 Verschobene Übungen
 -

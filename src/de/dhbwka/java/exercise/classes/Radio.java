@@ -1,5 +1,11 @@
 package de.dhbwka.java.exercise.classes;
 
+/**
+ * @author Gimleux
+ * @version 1.0
+ */
+
+
 public class Radio {
     private boolean on;
     private short volume;
@@ -13,8 +19,8 @@ public class Radio {
 
     /**
      * @param on        turns the radio on
-     * @param volume    specifys the volume and applies it
-     * @param frequency specifies the frequenzy and applies it
+     * @param volume    specifies the volume and applies it
+     * @param frequency specifies the frequency and applies it
      */
     public Radio(boolean on, short volume, float frequency) {
         this.on = on;
@@ -22,23 +28,36 @@ public class Radio {
         this.frequency = frequency;
     }
 
+    /**
+     *increase volume by 1 to a maximum of 10
+     */
     public void incVolume(){
         this.volume = (volume<10) ? ++volume : 10;
     }
 
+    /**
+     *decrease volume by 1 to a minimum of 0
+     */
     public void decVolume(){
         this.volume = (volume>0) ? --volume : 0;
     }
 
+    /**
+     * switch the radio on
+     */
     public void turnOn(){
         this.on = true;
     }
 
+    /**
+     *switch the radio off
+     */
     public void turnOff(){
         this.on = false;
     }
 
     /**
+     * set a new frequency for the radio
      * @param frequency specifies the frequency and applies it if the frequency is in the range [85.0;110.0]
      *                  if the given double is too big the value is set to 99.9
      */
