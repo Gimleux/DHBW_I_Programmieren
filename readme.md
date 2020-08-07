@@ -4,13 +4,15 @@
 * 02 - IDEs
 * 03 - Packages
 * 04 - Primitive Datentypen
+* 05 - Operatoren
 * 06 - Kontrollstrukturen
 * 07 - Arrays
 * 08 - Objektorientierung
 * 09 - Klassen und Objekte
+* 10 - Strings Wrapper
 
-# Verschobene Folien
-* 05 - Operatoren
+Verschobene Folien
+-
 
 # Bearbeitete Übungen
 * 00 - Aufgaben zu Packages
@@ -22,3 +24,7 @@
 * 06 - Aufgaben zu Klassen - 1
 * 07 - Aufgaben zu Klassen - 2
 * 08 - Aufgaben zu Klassen - 3
+
+Verschobene Übungen
+-
+* 09 - Sternchen zu Klassen

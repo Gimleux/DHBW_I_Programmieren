@@ -1,6 +1,6 @@
 package de.dhbwka.java.exercise.arrays;
 
-import de.dhbwka.java.utilities.Input.SameLineInput;
+import de.dhbwka.java.utilities.Input.OneLineInput;
 import de.dhbwka.java.utilities.print.PrintMatrix;
 
 import java.util.Scanner;
@@ -8,8 +8,8 @@ import java.util.Scanner;
 public class MatrixSubtraction {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        int numberOfRows = SameLineInput.getIntValueOfDescription(scan, "Anzahl der Zeilen n");
-        int numberOfColumns = SameLineInput.getIntValueOfDescription(scan, "Anzahl der Spalten");
+        int numberOfRows = OneLineInput.getIntValueOfDescription(scan, "Anzahl der Zeilen n");
+        int numberOfColumns = OneLineInput.getIntValueOfDescription(scan, "Anzahl der Spalten");
         double[][] matrixX = new double[numberOfRows][numberOfColumns], matrixY = new double[numberOfRows][numberOfColumns];
 
         if (randomInputs(scan)){
@@ -47,7 +47,7 @@ public class MatrixSubtraction {
         Scanner sc = new Scanner(System.in);
         for (int row = 0; row < matrix.length; row++){
             for (int column = 0; column < matrix[row].length; column++){
-                matrix[row][column] = SameLineInput.getDoubleValueOfDescription(sc, "Element der Matrix " + nameOfMatrix + " an Stelle row(n) = " + row + " und column(m) " + column);
+                matrix[row][column] = OneLineInput.getDoubleValueOfDescription(sc, "Element der Matrix " + nameOfMatrix + " an Stelle row(n) = " + row + " und column(m) " + column);
             }
         }
     }

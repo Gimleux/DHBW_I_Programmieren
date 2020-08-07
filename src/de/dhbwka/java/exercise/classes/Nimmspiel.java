@@ -1,6 +1,6 @@
 package de.dhbwka.java.exercise.classes;
 
-import de.dhbwka.java.utilities.Input.SameLineInput;
+import de.dhbwka.java.utilities.Input.OneLineInput;
 import de.dhbwka.java.utilities.console.Console;
 
 import java.util.Scanner;
@@ -112,8 +112,8 @@ public class Nimmspiel {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        int stack1 = SameLineInput.getIntValueOfDescription(scan, "Anzahl der Kugeln im Vorrat 1");
-        int stack2 = SameLineInput.getIntValueOfDescription(scan, "Anzahl der Kugeln im Vorrat 2");
+        int stack1 = OneLineInput.getIntValueOfDescription(scan, "Anzahl der Kugeln im Vorrat 1");
+        int stack2 = OneLineInput.getIntValueOfDescription(scan, "Anzahl der Kugeln im Vorrat 2");
         Console.printlnColoredText("-----------------------------------------------\n", "yellow");
         Nimmspiel game = new Nimmspiel(stack1, stack2);
         play(scan, game);

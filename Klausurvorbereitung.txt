@@ -1,0 +1,1 @@
+Übersicht mit printf-Möglichkeiten (zB 05-Operatoren_26)

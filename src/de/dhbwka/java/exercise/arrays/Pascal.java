@@ -1,6 +1,6 @@
 package de.dhbwka.java.exercise.arrays;
 
-import de.dhbwka.java.utilities.Input.SameLineInput;
+import de.dhbwka.java.utilities.Input.OneLineInput;
 import de.dhbwka.java.utilities.print.PrintMatrix;
 
 import java.util.Scanner;
@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Pascal {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        int[][] pascal = new int[SameLineInput.getIntValueOfDescription(scan, "Anzahl der Zeilen")][];
+        int[][] pascal = new int[OneLineInput.getIntValueOfDescription(scan, "Anzahl der Zeilen")][];
         scan.close();
 
         initPascal(pascal);

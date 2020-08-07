@@ -1,8 +1,7 @@
 package de.dhbwka.java.exercise.classes;
 
-import de.dhbwka.java.utilities.Input.SameLineInput;
+import de.dhbwka.java.utilities.Input.OneLineInput;
 import de.dhbwka.java.utilities.console.Console;
-import de.dhbwka.java.utilities.print.PrintArray;
 import de.dhbwka.java.utilities.random.Random;
 
 import java.util.Arrays;
@@ -10,7 +9,8 @@ import java.util.Scanner;
 
 public class MasterMind {
     private char[] letters;
-    private int[][] triesPositions;//[rightPosition][wrongPositionRightLetter]
+    //      [rightPosition][wrongPositionRightLetter]
+    private int[][] triesPositions;
     private String[] tries;
     private boolean[] checkedCharsInTip;
     private int rightPosition = 0;
@@ -155,7 +155,7 @@ public class MasterMind {
     }
 
     private boolean oneTry(Scanner scan) {
-        String tip = SameLineInput.getStringValueOfDescription(scan, "Tipp");
+        String tip = OneLineInput.getStringValueOfDescription(scan, "Tipp");
 
         if (wantsHelp(tip)) {
             return false;

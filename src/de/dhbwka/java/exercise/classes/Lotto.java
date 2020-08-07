@@ -1,6 +1,6 @@
 package de.dhbwka.java.exercise.classes;
 
-import de.dhbwka.java.utilities.Input.SameLineInput;
+import de.dhbwka.java.utilities.Input.OneLineInput;
 import de.dhbwka.java.utilities.console.Console;
 
 import java.util.Arrays;
@@ -78,7 +78,7 @@ public class Lotto {
         while (this.tip[i] != 0) {
             i++;
         }
-        short tip = (short) SameLineInput.getIntValueOfDescription(scan, "Tipp für die " + (i + 1) + ". Zahl");
+        short tip = (short) OneLineInput.getIntValueOfDescription(scan, "Tipp für die " + (i + 1) + ". Zahl");
         if (tip <= numberOfBalls && tip > 0 && this.tip[i] == 0) {
             this.tip[i] = tip;
         } else Console.printlnColoredText("Fehler: Eingabe nicht im Bereich [1," + numberOfBalls + "]", "red");

@@ -1,6 +1,6 @@
 package de.dhbwka.java.exercise.arrays;
 
-import de.dhbwka.java.utilities.Input.SameLineInput;
+import de.dhbwka.java.utilities.Input.OneLineInput;
 import de.dhbwka.java.utilities.print.PrintArray;
 
 import java.util.Scanner;
@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class BubbleSort {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        int numberOfElements = SameLineInput.getIntValueOfDescription(scan, "Anzahl der Elemente");
+        int numberOfElements = OneLineInput.getIntValueOfDescription(scan, "Anzahl der Elemente");
         double[] arrayWithElements = getArray(scan, numberOfElements);
         bubbleSort(arrayWithElements);
         PrintArray.printArrayInColumnsWithDelimiter(arrayWithElements, " ");
@@ -17,7 +17,7 @@ public class BubbleSort {
     public static double[] getArray(Scanner scan, int numberOfElements) {
         double[] array = new double[numberOfElements];
         for (int i = 0; i < array.length; i++) {
-            array[i] = SameLineInput.getDoubleValueOfDescription(scan, "Zahl " + i);
+            array[i] = OneLineInput.getDoubleValueOfDescription(scan, "Zahl " + i);
         }
         return array;
     }
