@@ -10,6 +10,7 @@
 * 08 - Objektorientierung
 * 09 - Klassen und Objekte
 * 10 - Strings Wrapper
+* 11 - Methoden Special
 
 Verschobene Folien
 -
