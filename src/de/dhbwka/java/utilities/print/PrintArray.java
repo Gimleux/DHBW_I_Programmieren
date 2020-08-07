@@ -1,5 +1,7 @@
 package de.dhbwka.java.utilities.print;
 
+//TODO Rename Rows <-> Columns
+
 public class PrintArray {
     public static void printArrayInRowsWithTextBeforeAndTextBehind(String textBefore, int[] array, String textBehind) {
         for (int element : array) {

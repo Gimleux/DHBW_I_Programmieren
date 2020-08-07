@@ -26,6 +26,7 @@ Verschobene Folien
 * 07 - Aufgaben zu Klassen - 2
 * 08 - Aufgaben zu Klassen - 3
 * 10 - Aufgaben zu Strings
+* 11 - Aufgaben zu Methoden Special
 
 Verschobene Übungen
 -
