@@ -30,6 +30,7 @@ Verschobene Folien
 * 10 - Aufgaben zu Strings
 * 11 - Aufgaben zu Methoden Special
 * 12 - Aufgaben zu Dokumentation
+* 13 - Aufgaben zu Vererbung - 1
 
 Verschobene Übungen
 -
