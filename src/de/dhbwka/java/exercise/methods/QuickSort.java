@@ -8,13 +8,19 @@ import java.util.Arrays;
 public class QuickSort {
     private int[] numbers;
 
-    public QuickSort(int length) {
-        this.numbers = new int[length];
+    public QuickSort() {
+        this.numbers = new int[20];
+        System.out.println("Arraylänge wurde auf 20 Elemente festgelegt.");
     }
 
-    public void fillArray(){
+    public QuickSort(int length) {
+        this.numbers = new int[length];
+        System.out.printf("Arraylänge wurde auf %d Elemente festgelegt.\n", length);
+    }
+
+    public void fillArray(int max){
         for (int i = 0; i<numbers.length; ++i){
-            numbers[i] = (int)(Random.RandomIntIncMinIncMax(0,500));
+            numbers[i] = (int)(Random.RandomIntIncMinIncMax(0,max));
         }
     }
 
@@ -65,8 +71,8 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-        QuickSort quickSort = new QuickSort(10);
-        quickSort.fillArray();
+        QuickSort quickSort = new QuickSort(100);
+        quickSort.fillArray(10000000);
         System.out.println("Unsortierte Zahlenfolge:");
         PrintArray.printArrayInColumnsWithDelimiter(quickSort.getNumbers(), " ");
         System.out.println();

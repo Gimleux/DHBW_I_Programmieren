@@ -12,6 +12,7 @@
 * 10 - Strings Wrapper
 * 11 - Methoden Special
 * 12 - Dokumentation
+* 13 - Vererbung
 
 Verschobene Folien
 -
