@@ -88,12 +88,8 @@ public class Element {
 
     @Override
     public String toString() {
-        return "Element:\n" +
-                "name='" + name + '\'' +
-                ", symbol='" + symbol + '\'' +
-                ", ordinal=" + ordinal +
-                ", shell=" + shell +
-                ", phase=" + phases[phase] +
-                ", group=" + (isInMainGroup?"main":"side");
+        return name + " (" + symbol + "," + ordinal + ")" +
+                " Schale: " + shell + ", " + phases[phase] +
+                ", " + (isInMainGroup ? "Hauptgruppe" : "Nebengruppe");
     }
 }

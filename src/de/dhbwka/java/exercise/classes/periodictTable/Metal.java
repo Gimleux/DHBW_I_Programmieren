@@ -33,7 +33,7 @@ public class Metal extends Element {
     @Override
     public String toString() {
         return super.toString() +
-                ", isMetalloid=" + isMetalloid +
-                ", conductivity=" + conductivity;
+                ", " + (isMetalloid?"nicht ":"") + "metalloid" +
+                ", Konduktivität: " + conductivity;
     }
 }
