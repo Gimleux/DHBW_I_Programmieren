@@ -31,6 +31,7 @@ Verschobene Folien
 * 11 - Aufgaben zu Methoden Special
 * 12 - Aufgaben zu Dokumentation
 * 13 - Aufgaben zu Vererbung - 1
+* 13 - Aufgaben zu Vererbung - 2
 
 Verschobene Übungen
 -
