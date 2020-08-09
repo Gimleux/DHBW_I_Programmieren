@@ -6,24 +6,48 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 
+/**
+ * @author Gimleux
+ * @version 1.1
+ */
+
 public class jtail {
     private File file;
     private int lines;
     private int bytes;
     private String[] content;
 
+    /**
+     * Complete Program:
+     * Prints last n bytes or lines (depending on args) of <filename> in Console
+     * - if neither lines nor bytes are passed, lines get a default value of 10
+     * - if bytes as well as lines are passed, only lines will be used
+     *
+     * @param args <filename> --lines=<n> --bytes=<n>
+     * @throws jtailIllegalParameterException No filename passed or <n> !element of N+
+     * @throws jtailIOException               Errors in file reading
+     */
     public jtail(String[] args) throws jtailIllegalParameterException, jtailIOException {
-        boolean gotArguments = getArguments(args);
-        if (gotArguments) {
+        //sets attributes by args
+        boolean gotFile = getArguments(args);
+        if (gotFile) {
+            //reads File and places wished content (by args/attributes) in content[] attribute
             readFile();
+            //print content[] attribute
             printSelectedContent();
         }
     }
 
+    /**
+     * Analyses all passed arguments for a filename as well as a lines and bytes argument and calls the corresponding functions to store their values
+     *
+     * @param args argument passed in the call of the class/program
+     * @return true if arguments contain a filepath
+     * @throws jtailIllegalParameterException No filename passed or <n> !element of N+
+     */
     private boolean getArguments(String[] args) throws jtailIllegalParameterException {
         if (args.length == 0) {
-            Console.printlnColoredText("Fehler: Kein Dateiname angegeben", "red");
-            return false;
+            throw new jtailIllegalParameterException("Fehler: Kein Dateiname angegeben");
         } else {
             boolean foundLines = false;
             //Looking for usefull args
@@ -44,14 +68,16 @@ public class jtail {
                 if (foundLines && file != null) break;
             }
             if (file == null) {
-                Console.printlnColoredText("Fehler: Kein Dateiname angegeben", "red");
-                return false;
+                throw new jtailIllegalParameterException("Fehler: Kein Dateiname angegeben");
             }
             setLinesIfNoArgs();
             return true;
         }
     }
 
+    /**
+     * Sets lines argument to default value of 10 if neither lines nor bytes are given
+     */
     private void setLinesIfNoArgs() {
         if (lines == 0 && bytes == 0) {
             Console.printlnColoredText("Keine nutzbaren Argumente angegeben. \n --lines wurde auf 10 gesetzt.", "yellow");
@@ -59,19 +85,33 @@ public class jtail {
         }
     }
 
+    /**
+     * Verifies existence of passed file(name) and stores the file in attribute
+     *
+     * @param element single argument that seems to be a file(name)
+     * @throws jtailIllegalParameterException thrown if more than one filename was passed
+     */
     private void argContainsFile(String element) throws jtailIllegalParameterException {
         if (file != null) {
             throw new jtailIllegalParameterException("Falsche Parameter: Mehrere Dateien angegeben");
         } else {
             File file = new File(element);
             if (!file.exists()) {
-                throw new jtailIllegalParameterException("Falsche Parameter: Date existiert nicht!");
+                throw new jtailIllegalParameterException("Falsche Parameter: Datei existiert nicht!");
             } else {
                 this.file = file;
             }
         }
     }
 
+    /**
+     * Checks if arguments were passed with right values and returns the value
+     *
+     * @param element single argument that contains wanted value
+     * @param arg     tells which kind of argument the function was called with
+     * @return value of the given argument
+     * @throws jtailIllegalParameterException thrown if the argument's value is not element of N+
+     */
     private int argContainsArg(String element, String arg) throws jtailIllegalParameterException {
         String param = element.substring(element.indexOf(arg) + arg.length());
         try {
@@ -85,26 +125,35 @@ public class jtail {
         }
     }
 
-    private void readFile() throws jtailIOException, jtailIllegalParameterException {
+    /**
+     * stores last <n> lines/bytes (depending on arguments)
+     * @throws jtailIOException thrown if file cannot be read
+     */
+    private void readFile() throws jtailIOException {
         if (lines != 0) {
             int numberOfLines = getNumberOfLinesInFile();
             if (numberOfLines < lines) {
-                throw new jtailIllegalParameterException("Fehler: Datei hat weniger Zeilen als gelesen werden sollen");
-            } else {
-                content = new String[lines];
-                readLastInContentArray(numberOfLines, true);
+                lines = numberOfLines;
             }
+            content = new String[lines];
+            readLastInContentArray(numberOfLines, true);
+
         } else {
             int numberOfBytes = getNumberOfBytesInFile();
             if (numberOfBytes < bytes) {
-                throw new jtailIllegalParameterException("Fehler: Datei hat weniger Bytes als gelesen werden sollen");
-            } else {
-                content = new String[1];
-                readLastInContentArray(numberOfBytes, false);
+                bytes = numberOfBytes;
             }
+            content = new String[1];
+            readLastInContentArray(numberOfBytes, false);
+
         }
     }
 
+    /**
+     * Gets Number of all lines in passed file
+     * @return number of all lines in file
+     * @throws jtailIOException thrown if file cannot be read
+     */
     private int getNumberOfLinesInFile() throws jtailIOException {
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             int numberOfLines = 0;
@@ -118,6 +167,11 @@ public class jtail {
         }
     }
 
+    /**
+     * Gets Number of all bytes in passed file
+     * @return number of all bytes in file
+     * @throws jtailIOException thrown if file cannot be read
+     */
     private int getNumberOfBytesInFile() throws jtailIOException {
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             int numberOfLines = 0;
@@ -131,6 +185,12 @@ public class jtail {
         }
     }
 
+    /**
+     * reads last <n> (depending on arguments) lines/bytes (depending on arguments) of file and stores them
+     * @param numberOfInFile Number of all lines/bytes (depending on lookingForLines param) in file
+     * @param lookingForLines true if whole lines shall be stores, false if only bytes shall be stored
+     * @throws jtailIOException thrown if file cannot be read
+     */
     private void readLastInContentArray(int numberOfInFile, boolean lookingForLines) throws jtailIOException {
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             int actualPositionInFile = 0;
@@ -164,30 +224,21 @@ public class jtail {
         }
     }
 
-    private int getNumberOfBytesInLine(int line) throws jtailIOException {
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-            int actualLineInFile = 0;
-            while (actualLineInFile < (line) + 1) {
-                br.readLine();
-                actualLineInFile++;
-            }
-            int actualByteInFile = 0;
-            while (br.ready()) {
-                br.read();
-                actualByteInFile++;
-            }
-            return actualByteInFile;
-        } catch (Exception e) {
-            throw new jtailIOException("Fehler: Datei konnte nicht gelesen werden" + System.lineSeparator() + e.getMessage());
-        }
-    }
-
+    /**
+     * print stored data in Console
+     */
     private void printSelectedContent() {
         for (String line : content) {
             System.out.println(line);
         }
     }
 
+    /**
+     * Starts a jtail program with given arguments (see more at the jtail constructor's informations)
+     * @param args <filename> --lines=<n> --bytes=<n>
+     * @throws jtailIllegalParameterException No filename passed or <n> !element of N+
+     * @throws jtailIOException               Errors in file reading
+     */
     public static void main(String[] args) throws jtailIOException, jtailIllegalParameterException {
         new jtail(args);
     }
