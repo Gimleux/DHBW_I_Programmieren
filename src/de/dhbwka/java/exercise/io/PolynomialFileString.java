@@ -1,4 +1,4 @@
-package de.dhbwka.java.exercise.io.Ausgaben;
+package de.dhbwka.java.exercise.io;
 
 import de.dhbwka.java.exercise.classes.Polynomial;
 

@@ -12,9 +12,7 @@ public class PolynomialFileBinary {
             Polynomial p = new Polynomial(1, 0, 1);
             for (double x = -3; x <= 3.1; x += 0.5) {
                 out.writeDouble(x);
-                out.writeChar(' ');
                 out.writeDouble(p.fX(x));
-                out.writeBytes(System.lineSeparator());
             }
         } catch (IOException e) {
             e.printStackTrace();
