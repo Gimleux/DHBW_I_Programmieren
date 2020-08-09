@@ -18,13 +18,13 @@ public class jtail {
     private String[] content;
 
     /**
-     * Complete Program:
-     * Prints last n bytes or lines (depending on args) of <filename> in Console
-     * - if neither lines nor bytes are passed, lines get a default value of 10
+     * Complete Program:<br>
+     * Prints last n bytes or lines (depending on args) of _filename_ in Console <br>
+     * - if neither lines nor bytes are passed, lines get a default value of 10 <br>
      * - if bytes as well as lines are passed, only lines will be used
      *
-     * @param args <filename> --lines=<n> --bytes=<n>
-     * @throws jtailIllegalParameterException No filename passed or <n> !element of N+
+     * @param args _filename_ --lines=_n_ --bytes=_n_
+     * @throws jtailIllegalParameterException No filename passed or _n_ !element of N+
      * @throws jtailIOException               Errors in file reading
      */
     public jtail(String[] args) throws jtailIllegalParameterException, jtailIOException {
@@ -43,7 +43,7 @@ public class jtail {
      *
      * @param args argument passed in the call of the class/program
      * @return true if arguments contain a filepath
-     * @throws jtailIllegalParameterException No filename passed or <n> !element of N+
+     * @throws jtailIllegalParameterException No filename passed or _n_ !element of N+
      */
     private boolean getArguments(String[] args) throws jtailIllegalParameterException {
         if (args.length == 0) {
@@ -64,7 +64,7 @@ public class jtail {
                         if (element.contains("--bytes=")) {
                             bytes = argContainsArg(element, "--bytes=");
                         }
-                //if both args are given, only foundLines is used -> no need to keep searching for --bytes=
+                //if both args are given, only foundLines is used -_ no need to keep searching for --bytes=
                 if (foundLines && file != null) break;
             }
             if (file == null) {
@@ -126,7 +126,7 @@ public class jtail {
     }
 
     /**
-     * stores last <n> lines/bytes (depending on arguments)
+     * stores last _n_ lines/bytes (depending on arguments)
      * @throws jtailIOException thrown if file cannot be read
      */
     private void readFile() throws jtailIOException {
@@ -186,7 +186,7 @@ public class jtail {
     }
 
     /**
-     * reads last <n> (depending on arguments) lines/bytes (depending on arguments) of file and stores them
+     * reads last _n_ (depending on arguments) lines/bytes (depending on arguments) of file and stores them
      * @param numberOfInFile Number of all lines/bytes (depending on lookingForLines param) in file
      * @param lookingForLines true if whole lines shall be stores, false if only bytes shall be stored
      * @throws jtailIOException thrown if file cannot be read
@@ -235,8 +235,8 @@ public class jtail {
 
     /**
      * Starts a jtail program with given arguments (see more at the jtail constructor's informations)
-     * @param args <filename> --lines=<n> --bytes=<n>
-     * @throws jtailIllegalParameterException No filename passed or <n> !element of N+
+     * @param args _filename_ --lines=_n_ --bytes=_n_
+     * @throws jtailIllegalParameterException No filename passed or _n_ !element of N+
      * @throws jtailIOException               Errors in file reading
      */
     public static void main(String[] args) throws jtailIOException, jtailIllegalParameterException {
