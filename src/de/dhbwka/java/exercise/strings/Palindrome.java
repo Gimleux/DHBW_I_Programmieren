@@ -4,7 +4,7 @@ import de.dhbwka.java.utilities.Input.OneLineInput;
 
 import java.util.Scanner;
 
-public class Palindrom {
+public class Palindrome {
     private String word;
 
     public void printTurnedAround(){
@@ -34,7 +34,7 @@ public class Palindrom {
     }
 
     public static void main(String[] args) {
-        Palindrom palindrom = new Palindrom();
+        Palindrome palindrom = new Palindrome();
         palindrom.getWord();
         palindrom.printTurnedAround();
         palindrom.printIsPalindrom();

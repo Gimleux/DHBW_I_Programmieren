@@ -1,8 +1,6 @@
 package de.dhbwka.java.exercise.io;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class PolynomialFile {
     private double a;
@@ -72,6 +70,17 @@ public class PolynomialFile {
         }
     }
 
+    public static void readPolynoms(){
+        try(BufferedReader br = new BufferedReader(new FileReader("polynomialFile.txt"))) {
+            while (br.ready()){
+                String line = br.readLine();
+                System.out.println(line);
+            }
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public String toString() {
         return a + "x^2 "
@@ -88,8 +97,7 @@ public class PolynomialFile {
         polynom3.printPolynomInFile("P3 = P1 + P2: ");
         polynom3 = polynom3.multiplyWithScalar(2);
         polynom3.printPolynomInFile("P3 = 2 * P3: ");
-        System.out.print("Nullstellen von P3 (" + polynom3.toString() + "): " + "\n");
-        for (double zero : polynom3.getZeros()) System.out.print(zero + " ");
         polynom3.printZerosInFile("Nullstellen von P3 (" + polynom3.toString() + "):");
+        readPolynoms();
     }
 }
