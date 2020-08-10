@@ -108,12 +108,7 @@ public class Zoo {
         }
     }
 
-    /**
-     * @param args
-     * @throws ZooCapacityException
-     * @throws ZooFileException
-     */
-    public static void main(String[] args) throws ZooCapacityException, ZooFileException {
+    public static void main(String[] args){
         Zoo z = new Zoo();
 
         /* add ZooAnimals */
