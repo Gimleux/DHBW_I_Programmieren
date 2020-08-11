@@ -98,6 +98,22 @@ public class Console {
         System.out.print(colorConsoleText(color) + text + colorConsoleText("default"));
     }
 
+    public static String getColoredText(String text, String color){
+        return (colorConsoleText(color) + text + colorConsoleText("default"));
+    }
+
+    public static String getColoredText(char text, String color) {
+        return (colorConsoleText(color) + text + colorConsoleText("default"));
+    }
+
+    public static String getColoredBackground(String text, String color){
+        return (colorConsoleBackground(color) + text + colorConsoleBackground("default"));
+    }
+
+    public static String getColoredBackground(char text, String color) {
+        return (colorConsoleBackground(color) + text + colorConsoleBackground("default"));
+    }
+
     public static String colorConsoleBackground(String color) {
         int colorNumber = getTextColorNumber(color)+10;
         String extension8Bit = "";
