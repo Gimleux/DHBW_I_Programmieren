@@ -18,6 +18,7 @@
 
 Verschobene Folien
 -
+* 17 - Probe PE Sem 1
 
 # Bearbeitete Übungen
 * 00 - Aufgaben zu Packages
@@ -39,8 +40,10 @@ Verschobene Folien
 * 15 - Aufgaben zu IO - 3
 * 15 - Aufgaben zu IO - JTail
 * 16 - Aufgabe Zoo
+* 20 - Aufgaben zu Swing - 1
 
 Verschobene Übungen
 -
 * 09 - Sternchen zu Klassen
 * 15 - Aufgaben zu IO - JGrep
+* 17 - Probe PE Sem 1
