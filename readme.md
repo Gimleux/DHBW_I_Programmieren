@@ -41,6 +41,7 @@ Verschobene Folien
 * 15 - Aufgaben zu IO - JTail
 * 16 - Aufgabe Zoo
 * 20 - Aufgaben zu Swing - 1
+* 20 - Aufgaben zu Swing - 2
 
 Verschobene Übungen
 -
