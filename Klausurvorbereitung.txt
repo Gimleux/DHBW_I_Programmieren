@@ -2,6 +2,8 @@
 
 Zwei Array Elemente Tauschen funktion
 
+Funktion get fertiges Menu (siehe EditorSimple)
+
 Hilfsfunktionen mit Javadoc versehen
 
 Exceptions (14-Exceptions_7)
