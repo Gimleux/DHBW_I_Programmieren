@@ -15,6 +15,8 @@
 * 13 - Vererbung
 * 14 - Exceptions
 * 15 - InputOutput
+* 20 - Swing
+* 22 - Innere Klassen
 
 Verschobene Folien
 -
@@ -42,6 +44,7 @@ Verschobene Folien
 * 16 - Aufgabe Zoo
 * 20 - Aufgaben zu Swing - 1
 * 20 - Aufgaben zu Swing - 2
+* 21 - Aufgaben zu abstrakten Klassen
 
 Verschobene Übungen
 -
