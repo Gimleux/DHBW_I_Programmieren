@@ -17,6 +17,7 @@
 * 15 - InputOutput
 * 20 - Swing
 * 22 - Innere Klassen
+* 23 - Events
 
 Verschobene Folien
 -
