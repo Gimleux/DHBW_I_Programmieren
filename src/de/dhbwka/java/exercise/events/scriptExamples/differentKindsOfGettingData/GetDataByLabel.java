@@ -5,20 +5,24 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GetTriggerByLabel extends JFrame {
+//Nur geeignet wenn Texte/Labels unterschiedlich sind
+
+public class GetDataByLabel extends JFrame {
     JButton button1 = new JButton("1");
     JButton button2 = new JButton("2");
+                                       //^--
 
     ActionListener listener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
             String text = ((JButton) e.getSource()).getText();
+                                                    //^--
             System.out.println(text);
         }
     };
 
-    public GetTriggerByLabel(){
-        this.setLayout(new FlowLayout());
+    public GetDataByLabel(){
+        this.setLayout(new GridLayout(1,2, 0, 0));
         this.add(button1);
         button1.addActionListener(listener);
         this.add(button2);
@@ -30,6 +34,6 @@ public class GetTriggerByLabel extends JFrame {
     }
 
     public static void main(String[] args) {
-        new GetTriggerByLabel();
+        new GetDataByLabel();
     }
 }
