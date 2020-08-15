@@ -3,7 +3,7 @@ package de.dhbwka.java.exercise.swing.scriptExamples.layoutDemo;
 import javax.swing.*;
 import java.awt.*;
 
-public class GridBayLayoutDemo {
+public class GridBagLayoutDemo {
     private static void addComponent(Container cont, Component c,
                                      int x, int y, int width, int height, double weightx, double weighty) {
         GridBagConstraints gbc = new GridBagConstraints();
