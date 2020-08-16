@@ -33,7 +33,7 @@ public class NumberGuess {
                 break;
             }
             numberOfAttempts++;
-        } while (guess != number);
+        } while (true);
     }
 
     public static String getPlayersName(Scanner scan) {

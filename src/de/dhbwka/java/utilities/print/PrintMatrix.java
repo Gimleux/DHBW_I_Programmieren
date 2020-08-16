@@ -27,6 +27,16 @@ public class PrintMatrix {
         }
     }
 
+    //TODO Format anpassen
+    public static void printRectangleMatrix (String[][] matrix){
+        for (String[] strings : matrix) {
+            for (int column = 0; column < strings.length; column++) {
+                System.out.print(strings[column] + " ");
+            }
+            System.out.println();
+        }
+    }
+
     public static void printRectangleMatrix (double[][] matrix, int decimals){
         double biggest = Biggest.getBiggestDigitInMatrix(matrix);
         //Auf decimals Dezimalstellen fuer Laenge abschneiden

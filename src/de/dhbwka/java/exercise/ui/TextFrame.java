@@ -1,7 +1,7 @@
 package de.dhbwka.java.exercise.ui;
 
 import de.dhbwka.java.utilities.console.Console;
-import de.dhbwka.java.utilities.files.read.wholeFiles.FileToString;
+import de.dhbwka.java.utilities.files.read.wholeTextFiles.FileToString;
 
 import javax.swing.*;
 import java.awt.*;

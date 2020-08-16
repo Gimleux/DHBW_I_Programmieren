@@ -1,4 +1,4 @@
-package de.dhbwka.java.utilities.files.read.wholeFiles;
+package de.dhbwka.java.utilities.files.read.wholeTextFiles;
 
 import java.io.BufferedReader;
 import java.io.File;
