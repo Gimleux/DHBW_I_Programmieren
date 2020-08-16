@@ -9,9 +9,8 @@ import java.awt.event.ActionListener;
 
 //^-- => Besonderheit bei dieser Umsetzung
 
-public class MethodOfListenerInterfacesImplementedInClassItself extends JFrame
-        implements ActionListener {
-        //^--
+public class MethodOfListenerInterfacesImplementedInClassItself extends JFrame implements ActionListener {
+                                                                                //^--
 
     JButton button = new JButton("Click me!");
 
