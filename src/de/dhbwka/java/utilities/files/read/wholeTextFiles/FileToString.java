@@ -6,9 +6,18 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class FileToString {
+
+    private static String readFile(BufferedReader bufferedReader) throws Exception {
+        StringBuilder stringBuilder = new StringBuilder();
+        while (bufferedReader.ready()) {
+            stringBuilder.append(bufferedReader.readLine()).append(System.lineSeparator());
+        }
+        return stringBuilder.toString();
+    }
     ///////////////////////////////////////////////////////////////////////////
     // get Text from File - With Error Description
     ///////////////////////////////////////////////////////////////////////////
+
     /**
      * Read a file by given pathname and return its content as String
      *
@@ -48,6 +57,7 @@ public class FileToString {
     ///////////////////////////////////////////////////////////////////////////
     // get Text from File - With Null if Error
     ///////////////////////////////////////////////////////////////////////////
+
     /**
      * Read a file by given pathname and return its content as String
      *
@@ -87,6 +97,7 @@ public class FileToString {
     ///////////////////////////////////////////////////////////////////////////
     // get Text from File - With Exception Message if Error
     ///////////////////////////////////////////////////////////////////////////
+
     /**
      * Read a file by given pathname and return its content as String
      *
