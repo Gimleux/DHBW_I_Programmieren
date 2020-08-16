@@ -140,20 +140,10 @@ public class Editor {
             else if (src.equals(fileMenu.getItem(SAVE_MENU))) {
                 OverwriteFileWithString.overwriteFileWithString_WithErrorDescription(pathname, textArea.getText());
             }
-            /*
-            String src = ((JMenuItem) e.getSource()).getText();
-            switch (src) {
-                case "Neu":
-                    textArea.setText("");
-                    pathname = "";
-                    break;
-                case "Öffnen":
-                    openFile();
-                    break;
-                case "Speichern":
-                    fileMenu.getSubElements();
-
-            }*/
+            //EXIT
+            else if (src.equals(fileMenu.getItem(EXIT_MENU))){
+                JOptionPane.showConfirmDialog(Editor, "Beenden?");
+            }
         }
 
         private boolean openFile() {

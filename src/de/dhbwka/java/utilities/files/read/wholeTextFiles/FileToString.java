@@ -1,16 +1,19 @@
 package de.dhbwka.java.utilities.files.read.wholeTextFiles;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class FileToString {
 
-    private static String readFile(BufferedReader bufferedReader) throws Exception {
+    ///////////////////////////////////////////////////////////////////////////
+    // Supportive Functions
+    ///////////////////////////////////////////////////////////////////////////
+    private static String readFile(BufferedReader bufferedReader) throws IOException {
         StringBuilder stringBuilder = new StringBuilder();
+        String actualLine;
+
         while (bufferedReader.ready()) {
-            stringBuilder.append(bufferedReader.readLine()).append(System.lineSeparator());
+            actualLine = bufferedReader.readLine();
+            stringBuilder.append(actualLine).append(System.lineSeparator());
         }
         return stringBuilder.toString();
     }
@@ -44,11 +47,7 @@ public class FileToString {
             return "Fehler: Datei nicht vorhanden";
         }
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
-            StringBuilder stringBuilder = new StringBuilder();
-            while (bufferedReader.ready()) {
-                stringBuilder.append(bufferedReader.readLine()).append(System.lineSeparator());
-            }
-            return stringBuilder.toString();
+            return readFile(bufferedReader);
         } catch (IOException e) {
             return "Fehler: Auf Datei konnte nicht zugegriffen werden";
         }
@@ -84,11 +83,7 @@ public class FileToString {
             return null;
         }
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
-            StringBuilder stringBuilder = new StringBuilder();
-            while (bufferedReader.ready()) {
-                stringBuilder.append(bufferedReader.readLine()).append(System.lineSeparator());
-            }
-            return stringBuilder.toString();
+            return readFile(bufferedReader);
         } catch (IOException e) {
             return null;
         }
@@ -105,15 +100,7 @@ public class FileToString {
      * @return String with file's content or String with Exception message
      */
     public static String getFileToString_WithExceptionMessage(String pathname) {
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(pathname)))) {
-            StringBuilder stringBuilder = new StringBuilder();
-            while (bufferedReader.ready()) {
-                stringBuilder.append(bufferedReader.readLine()).append(System.lineSeparator());
-            }
-            return stringBuilder.toString();
-        } catch (IOException e) {
-            return e.getMessage();
-        }
+        return getFileToString_WithExceptionMessage(new File(pathname));
     }
 
     /**
@@ -124,11 +111,7 @@ public class FileToString {
      */
     public static String getFileToString_WithExceptionMessage(File file) {
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
-            StringBuilder stringBuilder = new StringBuilder();
-            while (bufferedReader.ready()) {
-                stringBuilder.append(bufferedReader.readLine()).append(System.lineSeparator());
-            }
-            return stringBuilder.toString();
+            return readFile(bufferedReader);
         } catch (IOException e) {
             return e.getMessage();
         }
