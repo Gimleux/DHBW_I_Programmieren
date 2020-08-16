@@ -26,6 +26,8 @@ public class Editor {
     private final String MENU_TITLE_SEND = "Senden an...";
 
     private final String[] filesMenuItems = {"Neu", "Öffnen", HORIZONTAL_RULER, "Schlie\u00DFen", HORIZONTAL_RULER, "Speichern", "Speichern unter...", "Als Webseite speichern", "Suchen", HORIZONTAL_RULER, "Versionen", HORIZONTAL_RULER, "Webseitenvorschau", HORIZONTAL_RULER, "Seite einrichten...", "Seitenansicht", "Drucken", HORIZONTAL_RULER, SEND_MENU, "Eigenschaften", HORIZONTAL_RULER, "bilanz_2017.doc", "bericht_2018_01.doc", "ziele.doc", HORIZONTAL_RULER, "Beenden"};
+
+    //Array indices of items in filesMenu
     private final int NEW_MENU = 0;
     private final int OPEN_MENU = 1;
     private final int CLOSE_MENU = 3;
@@ -37,11 +39,14 @@ public class Editor {
 
     private final String[] sendMenuItems = {"E-Mail-Empfpänger", "E-Mail-Empfänger (zur Überarbeitung)", "E-Mail-Empfänger (als Anlage)", HORIZONTAL_RULER, "Verteilerempfänger...", "Onlinebesprechungsteilnehmer", "Exchange-Ordner...", "Fax-Empfänger...", HORIZONTAL_RULER, "Microsoft PowerPoint"};
 
+    /**
+     * Constructor for Editor
+     */
     public Editor() {
         frame = new JFrame("Editor");
 
         //Add Menus
-        frame.add(getMenuBar(), BorderLayout.NORTH);
+        frame.setJMenuBar(getMenuBar());
         //Add Content
         frame.add(getContentPane(), BorderLayout.CENTER);
 
@@ -50,7 +55,10 @@ public class Editor {
         frame.setSize(640, 480);
         frame.setVisible(true);
     }
-
+    /**
+     * Generates the main content pane for the editor
+     * @return JScrollPane for content in Editor
+     */
     private JScrollPane getContentPane() {
         textArea = new JTextPane();
         textArea.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 12));
@@ -59,6 +67,10 @@ public class Editor {
         return new JScrollPane(textArea);
     }
 
+    /**
+     * Generates the menus for the editor
+     * @return JMenuBar with all menus
+     */
     private JMenuBar getMenuBar() {
         JMenuBar menuBar = new JMenuBar();
         //Create all Menus
@@ -86,7 +98,6 @@ public class Editor {
 
     /**
      * Produces a JMenu with items for given String[]
-     *
      * @param title    name of Menu
      * @param mnemonic for Menu (KeyEvent.VK_ + 1st Letter of title)
      * @param content  String[] with Labels of MenuItems
@@ -110,6 +121,11 @@ public class Editor {
         return menu;
     }
 
+    /**
+     * Adds a single MenuItem to given menu and connects it with its actionListener
+     * @param menu menu to which the MenuItem shall be added
+     * @param content title of MenuItem
+     */
     private void addMenuItem(JMenu menu, String content) {
         JMenuItem menuItem = new JMenuItem(content);
         if (menu.getText().equals(MENU_TITLE_FILES) || menu.getText().equals(MENU_TITLE_SEND)) {
@@ -122,6 +138,9 @@ public class Editor {
         menu.add(menuItem);
     }
 
+    /**
+     * run instance of editor
+     */
     public static void main(String[] args) {
         new Editor();
     }
@@ -130,7 +149,14 @@ public class Editor {
     // Action Class Events - Files Menu
     ///////////////////////////////////////////////////////////////////////////
 
+    /**
+     * administrates the ActionEvent handling for the filesMenu
+     */
     class ActionClassFilesMenu implements ActionListener {
+        /**
+         * Calls the methods according to an actionEvent
+         * @param e ActionEvent which triggered the actionListener
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
             JMenuItem src = ((JMenuItem) e.getSource());
@@ -152,6 +178,10 @@ public class Editor {
             }
         }
 
+        /**
+         * Shows an optionPane which asks if user wants to save before discarding
+         * @return true if calling textFile shall be closed; false if not
+         */
         //Save before close
         private boolean saveChangesDialogAndCloseFile() {
             if (pathname != null && !pathname.equals("")) {
@@ -172,6 +202,9 @@ public class Editor {
             return true;
         }
 
+        /**
+         * Clears all references to old textFile and clears Editor  surface
+         */
         //NEW
         private void newMenuEvent() {
             if (saveChangesDialogAndCloseFile()) {
@@ -181,6 +214,9 @@ public class Editor {
             }
         }
 
+        /**
+         * Throws fileChooser, sets References to chosen one and reads its content in editor surface
+         */
         //OPEN
         private void openMenuEvent() {
             if (saveChangesDialogAndCloseFile()) {
@@ -209,11 +245,17 @@ public class Editor {
             } else return null;
         }
 
+        /**
+         * Saves editors content to deposited filepath
+         */
         //SAVE
         private void saveMenuEvent() {
             OverwriteFileWithString.overwriteFileWithString_WithErrorDescription(pathname, textArea.getText());
         }
 
+        /**
+         * Closes Editor
+         */
         //EXIT
         private void exitMenuEvent() {
             if (saveChangesDialogAndCloseFile()) {
