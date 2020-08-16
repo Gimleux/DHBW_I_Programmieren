@@ -12,6 +12,7 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 
 public class Editor {
+    private JFrame frame;
     private JTextPane textArea;
     private JMenu fileMenu;
     private JMenu editMenu;
@@ -37,7 +38,7 @@ public class Editor {
     private final String[] sendMenuItems = {"E-Mail-Empfpänger", "E-Mail-Empfänger (zur Überarbeitung)", "E-Mail-Empfänger (als Anlage)", HORIZONTAL_RULER, "Verteilerempfänger...", "Onlinebesprechungsteilnehmer", "Exchange-Ordner...", "Fax-Empfänger...", HORIZONTAL_RULER, "Microsoft PowerPoint"};
 
     public Editor() {
-        JFrame frame = new JFrame("Editor");
+        frame = new JFrame("Editor");
 
         //Add Menus
         frame.add(getMenuBar(), BorderLayout.NORTH);
@@ -50,6 +51,14 @@ public class Editor {
         frame.setVisible(true);
     }
 
+    private JScrollPane getContentPane() {
+        textArea = new JTextPane();
+        textArea.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 12));
+
+        //Return mit Scroll Bar
+        return new JScrollPane(textArea);
+    }
+
     private JMenuBar getMenuBar() {
         JMenuBar menuBar = new JMenuBar();
         //Create all Menus
@@ -59,19 +68,20 @@ public class Editor {
         menuBar.add(editMenu);
 
         //Special MenuItems
-        int[] enabledMenuItems = {NEW_MENU, OPEN_MENU};
+        int[] enabledMenuItems = {NEW_MENU, OPEN_MENU, EXIT_MENU};
         for (int menuItemIdentifier : enabledMenuItems) {
-            fileMenu.getItem(menuItemIdentifier).setEnabled(true);
+            JMenuItem menuItem = fileMenu.getItem(menuItemIdentifier);
+            menuItem.setEnabled(true);
+            menuItem.setAccelerator(KeyStroke.getKeyStroke("control " + menuItem.getText().charAt(0)));
         }
+        //Add special shortcuts (that cannot be handled by for-loop)
+        JMenuItem saveMenuItem;
+        saveMenuItem = fileMenu.getItem(SAVE_MENU);
+        saveMenuItem.setAccelerator(KeyStroke.getKeyStroke("control S"));
+        saveMenuItem = fileMenu.getItem(OPEN_MENU);
+        saveMenuItem.setAccelerator(KeyStroke.getKeyStroke("control O"));
+
         return menuBar;
-    }
-
-    private JScrollPane getContentPane() {
-        textArea = new JTextPane();
-        textArea.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 12));
-
-        //Return mit Scroll Bar
-        return new JScrollPane(textArea);
     }
 
     /**
@@ -117,7 +127,7 @@ public class Editor {
     }
 
     ///////////////////////////////////////////////////////////////////////////
-    // Action Classes
+    // Action Class Events - Files Menu
     ///////////////////////////////////////////////////////////////////////////
 
     class ActionClassFilesMenu implements ActionListener {
@@ -126,23 +136,57 @@ public class Editor {
             JMenuItem src = ((JMenuItem) e.getSource());
             //NEW
             if (src.equals(fileMenu.getItem(NEW_MENU))) {
+                newMenuEvent();
+            }
+            //OPEN
+            else if (src.equals(fileMenu.getItem(OPEN_MENU))) {
+                openMenuEvent();
+            }
+            //SAVE
+            else if (src.equals(fileMenu.getItem(SAVE_MENU))) {
+                saveMenuEvent();
+            }
+            //EXIT
+            else if (src.equals(fileMenu.getItem(EXIT_MENU))) {
+                exitMenuEvent();
+            }
+        }
+
+        //Save before close
+        private boolean saveChangesDialogAndCloseFile() {
+            if (pathname != null && !pathname.equals("")) {
+                int result = JOptionPane.showConfirmDialog(frame, "Do you want to save your changes?");
+                if (result == 0) {
+                    //Yes
+                    saveMenuEvent();
+                    return true;
+                } else if (result == 1) {
+                    //No
+                    return true;
+                } else if (result == 2) {
+                    //Cancel
+                    return false;
+                }
+            }
+            //No open file
+            return true;
+        }
+
+        //NEW
+        private void newMenuEvent() {
+            if (saveChangesDialogAndCloseFile()) {
                 textArea.setText("");
                 pathname = "";
                 fileMenu.getItem(SAVE_MENU).setEnabled(false);
             }
-            //OPEN
-            else if (src.equals(fileMenu.getItem(OPEN_MENU))) {
+        }
+
+        //OPEN
+        private void openMenuEvent() {
+            if (saveChangesDialogAndCloseFile()) {
                 if (openFile()) {
                     fileMenu.getItem(SAVE_MENU).setEnabled(true);
                 }
-            }
-            //SAVE
-            else if (src.equals(fileMenu.getItem(SAVE_MENU))) {
-                OverwriteFileWithString.overwriteFileWithString_WithErrorDescription(pathname, textArea.getText());
-            }
-            //EXIT
-            else if (src.equals(fileMenu.getItem(EXIT_MENU))){
-                JOptionPane.showConfirmDialog(Editor, "Beenden?");
             }
         }
 
@@ -164,8 +208,24 @@ public class Editor {
                 return fileChooser.getSelectedFile().getAbsolutePath();
             } else return null;
         }
+
+        //SAVE
+        private void saveMenuEvent() {
+            OverwriteFileWithString.overwriteFileWithString_WithErrorDescription(pathname, textArea.getText());
+        }
+
+        //EXIT
+        private void exitMenuEvent() {
+            if (saveChangesDialogAndCloseFile()) {
+                System.exit(0);
+            }
+        }
     }
 
+
+    ///////////////////////////////////////////////////////////////////////////
+    // Action Class Events - Edit Menu
+    ///////////////////////////////////////////////////////////////////////////
     class ActionClassEditMenu implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
