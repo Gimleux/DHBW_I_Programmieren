@@ -2,8 +2,6 @@ package de.dhbwka.java.exercise.ui.event;
 
 import de.dhbwka.java.utilities.files.read.dataFiles.DataFileToArray;
 import de.dhbwka.java.utilities.files.write.append.AppendStringToFile;
-import de.dhbwka.java.utilities.print.PrintArray;
-import de.dhbwka.java.utilities.print.PrintMatrix;
 import de.dhbwka.java.utilities.random.Random;
 import de.dhbwka.java.utilities.search.Biggest;
 

@@ -46,6 +46,7 @@ Verschobene Folien
 * 20 - Aufgaben zu Swing - 1
 * 20 - Aufgaben zu Swing - 2
 * 21 - Aufgaben zu abstrakten Klassen
+* 23 - Aufgaben zu Events - 1
 
 Verschobene Übungen
 -
