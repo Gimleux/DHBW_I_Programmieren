@@ -29,8 +29,8 @@ public class AppendStringToFile {
     }
 
     private static String appendContentWithErrorDescription(File file, String content){
-        try(BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file))){
-            bufferedWriter.append(content);
+        try(BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true))){
+            bufferedWriter.append(content).append(System.lineSeparator());
             return null;
         } catch (IOException e){
             return e.getMessage();

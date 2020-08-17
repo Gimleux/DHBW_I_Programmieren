@@ -1,6 +1,5 @@
 package de.dhbwka.java.exercise.ui.editor;
 
-import de.dhbwka.java.exercise.ui.EditorSimple;
 import de.dhbwka.java.utilities.files.read.wholeTextFiles.FileToString;
 import de.dhbwka.java.utilities.files.write.overwrite.OverwriteFileWithString;
 

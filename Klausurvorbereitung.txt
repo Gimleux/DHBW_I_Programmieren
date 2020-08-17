@@ -16,3 +16,7 @@ STRG+ALT+M -> Auslagern des Codes an aktueller Stelle in eigene Funktion
 
 STRG+Q -> Informationen zu Methode bei Cursor
 STRG+Shift+I -> Vorschau Methodenbody
+
+"Live Template" -> Eigene Codeabkürzungen hinterlegen (bspw. psvm)
+
+Fertiges MessageField bauen

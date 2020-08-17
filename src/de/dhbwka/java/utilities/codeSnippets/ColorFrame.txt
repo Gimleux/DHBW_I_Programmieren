@@ -1,0 +1,1 @@
+tfMessage.setDisabledTextColor(Color.decode("#000000"));
