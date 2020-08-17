@@ -19,7 +19,7 @@ public class Random {
     }
 
     public static int RandomIntIncMinExcMax(int min, int max) {
-        return (int) (Math.random() * (max - min + 1) + min);
+        return (int) (Math.random() * (max-min) + min);
     }
 
     public static int RandomIntExcMinIncMax(int min, int max) {
@@ -27,7 +27,7 @@ public class Random {
     }
 
     public static int RandomIntIncMinIncMax(int min, int max) {
-        return RandomIntIncMinExcMax(min, max + 1) + 1;
+        return RandomIntIncMinExcMax(min, max + 1);
     }
 
 //    public static int RandomIntExc0ExcMax(int max){
