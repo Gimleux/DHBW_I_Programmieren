@@ -1,0 +1,4 @@
+Gim;5
+Jaemesh;5
+Frodo;2
+Sauron;3
