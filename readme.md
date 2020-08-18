@@ -18,6 +18,7 @@
 * 20 - Swing
 * 22 - Innere Klassen
 * 23 - Events
+* 24 - Zeichnen
 
 Verschobene Folien
 -
