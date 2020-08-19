@@ -1,22 +1,22 @@
-Übersicht mit printf-Möglichkeiten (zB 05-Operatoren_26)
-
-Zwei Array Elemente Tauschen funktion
-
-Funktion get fertiges Menu (siehe EditorSimple)
-
-Hilfsfunktionen mit Javadoc versehen
-
-Exceptions (14-Exceptions_7)
-
-FileReading/Writing vertiefen
-
-Swing: 13/14, 18/19, 21-26,
-
-STRG+ALT+M -> Auslagern des Codes an aktueller Stelle in eigene Funktion
-
-STRG+Q -> Informationen zu Methode bei Cursor
-STRG+Shift+I -> Vorschau Methodenbody
+STRG+ALT+M 	-> Auslagern des Codes an aktueller Stelle in eigene Funktion
+STRG+Q 		-> Informationen zu Methode bei Cursor
+STRG+Shift+I 	-> Vorschau Methodenbody
 
 "Live Template" -> Eigene Codeabkürzungen hinterlegen (bspw. psvm)
 
+Übersicht mit printf-Möglichkeiten (zB 05-Operatoren_26)
+Exceptions (14-Exceptions_7)
+Swing: 13/14, 18/19, 21-26,
+
+Funktion get fertiges Menu (siehe EditorSimple)
 Fertiges MessageField bauen
+
+Zwei Array Elemente Tauschen funktion
+
+Hilfsfunktionen mit Javadoc versehen
+
+
+FileReading/Writing vertiefen
+
+
+
