@@ -49,6 +49,7 @@ Verschobene Folien
 * 21 - Aufgaben zu abstrakten Klassen
 * 23 - Aufgaben zu Events - 1
 * 23 - Aufgaben zu Events - 2
+* 24 - Aufgaben zu Zeichnen
 
 Verschobene Übungen
 -
