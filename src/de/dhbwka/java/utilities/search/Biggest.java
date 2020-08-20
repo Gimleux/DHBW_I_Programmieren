@@ -32,19 +32,19 @@ public class Biggest {
     ///////////////////////////////////////////////////////////////////////////
     // Get row with biggest Entry in given column of Matrix of Strings
     ///////////////////////////////////////////////////////////////////////////
-    public static String[] getBiggestEntryInStringMatrix(String[][] array, int column){
+    public static String[] getBiggestEntryInStringMatrix(String[][] array, int columnFrom1){
         //human to IT numbers
-        column--;
+        columnFrom1--;
 
         //array -> [row][column]
-        if (array.length==0 || column>=array[0].length){
+        if (array.length==0 || columnFrom1>=array[0].length){
             return null;
         }
         int posWithBiggest = 0;
         double biggest =  0;
         for (int i = 0; i<array.length;i++){
             try {
-                double valueOnPosition = Double.parseDouble(array[i][column]);
+                double valueOnPosition = Double.parseDouble(array[i][columnFrom1]);
                 if(valueOnPosition>biggest){
                     posWithBiggest = i;
                     biggest = valueOnPosition;
