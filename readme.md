@@ -19,6 +19,7 @@
 * 22 - Innere Klassen
 * 23 - Events
 * 24 - Zeichnen
+* 24 - JavaFX
 
 Verschobene Folien
 -
