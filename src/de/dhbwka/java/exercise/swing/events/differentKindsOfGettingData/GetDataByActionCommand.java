@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-//Nur anwendbar, falss sinnvolle Command-Namen vorhanden
+//Nur anwendbar, falls sinnvolle Command-Namen vorhanden
 
 public class GetDataByActionCommand extends JFrame {
     private JButton button1 = new JButton("OK");
