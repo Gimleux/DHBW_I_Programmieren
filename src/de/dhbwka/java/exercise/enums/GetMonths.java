@@ -18,5 +18,4 @@ public class GetMonths {
 
         System.out.println("Der " +  month + " hat " + month.getDays() + " Tage und hieß früher '" + stringBuilder + "'");
     }
-    //Der Juni hat 30 Tage und hieß früher 'Brachet, Brachmond'
 }

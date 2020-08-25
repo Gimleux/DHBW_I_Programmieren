@@ -34,12 +34,3 @@ public enum Months {
         return Months.values()[number].toString();
     }
 }
-
-/*
-Hinweis:
-Den aktuellen Monat bekommen Sie mit
-new Date().getMonth()
-oder seit JDK 1.1 besser:
-Calendar.getInstance().get(Calendar.MONTH)
-als int (Zählung beginnt bei 0).
- */
