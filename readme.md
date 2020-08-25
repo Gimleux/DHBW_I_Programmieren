@@ -20,6 +20,8 @@
 * 23 - Events
 * 24 - Zeichnen
 * 24 - JavaFX
+* 25 - Datenstrukturen
+* 26 - Enum
 
 Verschobene Folien
 -
@@ -51,6 +53,8 @@ Verschobene Folien
 * 23 - Aufgaben zu Events - 1
 * 23 - Aufgaben zu Events - 2
 * 24 - Aufgaben zu Zeichnen
+* 25 - Aufgaben zu Datenstrukturen - 1
+* 25 - Aufgaben zu Datenstrukturen - 2
 
 Verschobene Übungen
 -
