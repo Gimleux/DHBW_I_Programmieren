@@ -7,5 +7,6 @@ public enum CardValue {
     Jack,
     Queen,
     King,
+    Ten,
     Ace
 }

@@ -1,11 +1,19 @@
 package de.dhbwka.java.exercise.enums.cards;
 
-public class PlayingCard implements Comparable<PlayingCard>{
+public class PlayingCard implements Comparable<PlayingCard> {
     private CardSuit suit;
     private CardValue value;
 
-    public int compareTo(PlayingCard c){
-        return this.getCardValue()-c.getCardValue();
+    public PlayingCard() {
+    }
+
+    public PlayingCard(String suit, String value) {
+        this.suit = CardSuit.valueOf(suit);
+        this.value = CardValue.valueOf(value);
+    }
+
+    public int compareTo(PlayingCard c) {
+        return this.getCardValue() - c.getCardValue();
     }
 
     @Override
@@ -15,6 +23,17 @@ public class PlayingCard implements Comparable<PlayingCard>{
                 value;
     }
 
+    public boolean equals(PlayingCard pc) {
+        return (suit == pc.suit && value == pc.value && this.getClass()==pc.getClass());
+    }
+
+    private int getCardValue() {
+        return suit.ordinal() * 10 + value.ordinal();
+    }
+
+    ///////////////////////////////////////////////////////////////////////////
+    // Getter & Setter
+    ///////////////////////////////////////////////////////////////////////////
     public CardSuit getSuit() {
         return suit;
     }
@@ -30,10 +49,4 @@ public class PlayingCard implements Comparable<PlayingCard>{
     public void setValue(CardValue value) {
         this.value = value;
     }
-
-    private int getCardValue(){
-        return suit.ordinal()*10+value.ordinal();
-    }
-
-
 }
