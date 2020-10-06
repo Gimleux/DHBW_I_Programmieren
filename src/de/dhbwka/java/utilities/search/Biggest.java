@@ -3,6 +3,8 @@ package de.dhbwka.java.utilities.search;
 import de.dhbwka.java.utilities.print.PrintArray;
 import de.dhbwka.java.utilities.print.PrintMatrix;
 
+import java.util.ArrayList;
+
 public class Biggest {
     ///////////////////////////////////////////////////////////////////////////
     // Get Biggest Digit in Matrix of Numbers
