@@ -22,6 +22,7 @@
 * 24 - JavaFX
 * 25 - Datenstrukturen
 * 26 - Enum
+* 27 - Threads
 
 Verschobene Folien
 -
@@ -55,6 +56,7 @@ Verschobene Folien
 * 24 - Aufgaben zu Zeichnen
 * 25 - Aufgaben zu Datenstrukturen - 1
 * 25 - Aufgaben zu Datenstrukturen - 2
+* 26 - Enum Aufgaben
 
 Verschobene Übungen
 -
