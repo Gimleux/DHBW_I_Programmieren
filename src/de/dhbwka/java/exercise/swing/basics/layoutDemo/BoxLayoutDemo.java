@@ -1,4 +1,4 @@
-package de.dhbwka.java.exercise.swing.scriptExamples.layoutDemo;
+package de.dhbwka.java.exercise.swing.basics.layoutDemo;
 
 import java.awt.Component;
 import java.awt.Container;

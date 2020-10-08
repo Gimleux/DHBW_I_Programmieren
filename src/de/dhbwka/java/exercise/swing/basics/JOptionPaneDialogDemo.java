@@ -1,4 +1,4 @@
-package de.dhbwka.java.exercise.swing.scriptExamples;
+package de.dhbwka.java.exercise.swing.basics;
 
 import javax.swing.*;
 
