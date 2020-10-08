@@ -1,0 +1,4 @@
+Faust,Goethe,1751,G.
+Anna Karenika,Tolstoi,1750,KA
+Schuld und Sühne,Tolstoi,1750,KA
+Der Falsche Nero, Feuchtwanger,1920,rororo
