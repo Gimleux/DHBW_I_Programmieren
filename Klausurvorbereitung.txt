@@ -7,14 +7,11 @@ STRG+Shift+I 	-> Vorschau Methodenbody
 Übersicht mit printf-Möglichkeiten (zB 05-Operatoren_26)
 Exceptions (14-Exceptions_7)
 Swing: 13/14, 18/19, 21-26,
-
+Wer das liest ist doof
 Funktion get fertiges Menu (siehe EditorSimple)
-Fertiges MessageField bauen
+x Fertiges MessageField bauen
 
 Zwei Array Elemente Tauschen funktion
-
-Hilfsfunktionen mit Javadoc versehen
-
 
 FileReading/Writing vertiefen
 
