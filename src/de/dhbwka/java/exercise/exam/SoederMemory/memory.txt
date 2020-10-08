@@ -1,0 +1,3 @@
+Game fertig nach 6 Runden   Angela 2 Horst 1 Andrea 0 
+Game fertig nach 5 Runden   Horst 2 Angela 1 Andrea 0 
+Game fertig nach 10 Runden   Angela 3 Andrea 1 Horst 0 
