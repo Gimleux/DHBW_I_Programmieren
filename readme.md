@@ -57,6 +57,7 @@ Verschobene Folien
 * 25 - Aufgaben zu Datenstrukturen - 1
 * 25 - Aufgaben zu Datenstrukturen - 2
 * 26 - Enum Aufgaben
+* 27 - Aufgaben zu Threads - 1
 
 Verschobene Übungen
 -
