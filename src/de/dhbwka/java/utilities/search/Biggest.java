@@ -1,14 +1,15 @@
 package de.dhbwka.java.utilities.search;
 
-import de.dhbwka.java.utilities.print.PrintArray;
-import de.dhbwka.java.utilities.print.PrintMatrix;
-
-import java.util.ArrayList;
-
 public class Biggest {
     ///////////////////////////////////////////////////////////////////////////
     // Get Biggest Digit in Matrix of Numbers
     ///////////////////////////////////////////////////////////////////////////
+
+    /**
+     * returns biggest digit in two dimensional matrix
+     * @param matrix matrix in which the biggest number shall be found
+     * @return biggest number
+     */
     public static double getBiggestDigitInMatrix (double[][] matrix){
         double biggest = 0;
 
@@ -20,6 +21,11 @@ public class Biggest {
         return biggest;
     }
 
+    /**
+     * returns biggest digit in two dimensional matrix
+     * @param matrix matrix in which the biggest number shall be found
+     * @return biggest number
+     */
     public static int getBiggestDigitInMatrix (int[][] matrix){
         int biggest = 0;
 
@@ -34,6 +40,12 @@ public class Biggest {
     ///////////////////////////////////////////////////////////////////////////
     // Get row with biggest Entry in given column of Matrix of Strings
     ///////////////////////////////////////////////////////////////////////////
+    /**
+     * returns StringArray with row including the biggest entry (numeric value) (in given column) of a two dimensional matrix -> matrix[row][column]
+     * @param array matrix in which the biggest entry shall be found
+     * @param columnFrom1 column whose elements shall be compared (counting from 1, not 0)
+     * @return biggest number
+     */
     public static String[] getBiggestEntryInStringMatrix(String[][] array, int columnFrom1){
         //human to IT numbers
         columnFrom1--;

@@ -4,23 +4,9 @@ import java.io.*;
 
 public class FileToString {
 
-    ///////////////////////////////////////////////////////////////////////////
-    // Supportive Functions
-    ///////////////////////////////////////////////////////////////////////////
-    private static String readFile(BufferedReader bufferedReader) throws IOException {
-        StringBuilder stringBuilder = new StringBuilder();
-        String actualLine;
-
-        while (bufferedReader.ready()) {
-            actualLine = bufferedReader.readLine();
-            stringBuilder.append(actualLine).append(System.lineSeparator());
-        }
-        return stringBuilder.toString();
-    }
-    ///////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////
     // get Text from File - With Error Description
     ///////////////////////////////////////////////////////////////////////////
-
     /**
      * Read a file by given pathname and return its content as String
      *
@@ -115,5 +101,16 @@ public class FileToString {
         } catch (IOException e) {
             return e.getMessage();
         }
+    }
+	
+    private static String readFile(BufferedReader bufferedReader) throws IOException {
+        StringBuilder stringBuilder = new StringBuilder();
+        String actualLine;
+
+        while (bufferedReader.ready()) {
+            actualLine = bufferedReader.readLine();
+            stringBuilder.append(actualLine).append(System.lineSeparator());
+        }
+        return stringBuilder.toString();
     }
 }

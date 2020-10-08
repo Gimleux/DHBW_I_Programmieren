@@ -8,9 +8,22 @@ import java.util.ArrayList;
 //TODO besseres catch-Management
 
 public class DataFileToArray {
+	/**
+     * Get Data StringArray with Data from one String
+     * @param pathname Path to dataFile
+     * @param delimiter Delimiter char which separates the differend DataSets
+     * @return StringArray with all DataSets in String
+     */
     public static String[][] getStringArrayOfDataFileWithDelimiter(String pathname, char delimiter){
         return getStringArrayOfDataFileWithDelimiter(new File(pathname), delimiter);
     }
+	
+	/**
+     * Get Data StringArray with Data from one String
+     * @param file dataFile
+     * @param delimiter Delimiter char which separates the differend DataSets
+     * @return StringArray with all DataSets in String
+     */
     public static String[][] getStringArrayOfDataFileWithDelimiter(File file, char delimiter){
         if(!file.exists()){
             System.out.printf("File %s does not exist \n", file.getAbsolutePath());
@@ -51,12 +64,8 @@ public class DataFileToArray {
         return result;
     }
 
-    /**
-     * Get Data StringArray with Data from one String
-     * @param rowContent String with Data
-     * @param delimiter Delimiter char which separates the differend DataSets
-     * @return StringArray with all DataSets in String
-     */
+
+    
     private static String[] getOneRow(String rowContent, char delimiter){
         ArrayList<String> rowData = new ArrayList<>();
         StringBuilder oneData = new StringBuilder();

@@ -3,6 +3,7 @@ package de.dhbwka.java.exercise.io.textfile;
 import de.dhbwka.java.utilities.console.Console;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class TextFile {
 
